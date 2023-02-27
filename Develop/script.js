@@ -6,12 +6,12 @@ function generatePassword() {
     var Capital = prompt("Do you want to include upper case letters?")
     var numbers = prompt("Do you want to include numbers?")
     var specialCharacters = prompt("Do you want to include special characters?")
-    
-  if (passwordLength <8 || passwordLength >128) {
+  if (passwordLength > 8 && passwordLength < 128) {
     console.log("Password is acceptable")
+  } else {
+    console.log("Password is unacceptable")
   }
-  
-    return "Test"
+  return "Test"
   }
 
   var uppercaseCharacters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" ]
