@@ -2,15 +2,21 @@
 function generatePassword() {
     var passwordLength = prompt("How many characters would you like your password to be?")
     console.log("Password length", passwordLength)
-    var uppercaseCharacters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" ]
-    var lowercaseCharacters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
     var nonCapital = prompt("Do you want to include lower case letters?")
     var Capital = prompt("Do you want to include upper case letters?")
     var numbers = prompt("Do you want to include numbers?")
     var specialCharacters = prompt("Do you want to include special characters?")
-    return "Test"
+    
+  if (passwordLength <8 || passwordLength >128) {
+    console.log("Password is acceptable")
   }
   
+    return "Test"
+  }
+
+  var uppercaseCharacters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" ]
+  var lowercaseCharacters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+
   
   // Get references to the #generate element
   var generateBtn = document.querySelector("#generate");
