@@ -1,26 +1,17 @@
 // Assignment code here
-function generatePassword() {
-    var passwordLength = prompt("How many characters would you like your password to be?")
-    console.log("Password length", passwordLength)
-    var nonCapital = prompt("Do you want to include lower case letters?")
-    var Capital = prompt("Do you want to include upper case letters?")
-    var numbers = prompt("Do you want to include numbers?")
-    var specialCharacters = prompt("Do you want to include special characters?")
-  if (passwordLength > 8 && passwordLength < 128) {
-    console.log("Password is acceptable")
-  } else {
-    console.log("Password is unacceptable")
-  }
-  return "Test"
-  }
+var characterLength = 8;
+var choiceArray = [];
+var uppercaseArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" ]
+var lowercaseArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]  
+var numberArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
+var specialArray = ["!", "@", "#", "$", "%", "^", "&", "*"]
 
-  var uppercaseCharacters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" ]
-  var lowercaseCharacters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-
-  
   // Get references to the #generate element
   var generateBtn = document.querySelector("#generate");
   
+  // Add event listener to generate button
+  generateBtn.addEventListener("click", writePassword);
+
   // Write password to the #password input
   function writePassword() {
     var password = generatePassword();
@@ -30,6 +21,34 @@ function generatePassword() {
   
   }
   
-  // Add event listener to generate button
-  generateBtn.addEventListener("click", writePassword);
+  function generatePassword() {
+
+  }
+
+  function getPrompts(){
+    characterLength = parsInt(prompt("How many characters do you want your password to be? (8 - 128 characters)"));
+
+if(isNaN(characterLength) || characterLength < 8 || characterLength > 128) {
+    alert("Password is unacceptable");
+    return false;
+}
+
+if (confirm("Do you want lowercase letters in your password?")) {
+    choiceArray = choiceArray.concat(lowercaseArray);
+}
+
+if (confirm("Do you want uppercase letters in your password?")) {
+    choiceArray = choiceArray.concat(uppercaseArray);
+}
+
+if (confirm("Do you want special characters in your password?")) {
+    choiceArray = choiceArray.concat(specialArray);
+}
+
+if (confirm("Do you want numbers in your password?")) {
+    choiceArray = choiceArray.concat(numberArray);
+    return true;
+}
+
+}
   
